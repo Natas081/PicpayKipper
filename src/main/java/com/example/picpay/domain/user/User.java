@@ -2,6 +2,7 @@ package com.example.picpay.domain.user;
 
 
 //NAO PRECISA DE AUTENTICAÇÃO
+import com.example.picpay.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -35,4 +36,16 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public User(UserDTO data){
+        this.firstName = data.firstName();
+        this.lastName= data.lastName();
+        this.balance = data.balanca();
+        this.userType = data.userType();
+        this.password = data.password();
+        this.email = data.email();
+        this.document = data.document();
+
+
+    }
 }
